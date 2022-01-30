@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/recipesFragment"
+        android:title="Recipes"
+        android:icon="@drawable/ic_twotone_menu_book_24"/>
+
+    <item
+        android:id="@+id/favouriteRecipesFragment"
+        android:title="Favourites"
+        android:icon="@drawable/ic_twotone_star_24"/>
+
+    <item
+        android:id="@+id/foodJokeFragment"
+        android:title="Joke"
+        android:icon="@drawable/ic_baseline_sentiment_satisfied_alt_24"/>
+
+</menu>
