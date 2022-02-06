@@ -7,11 +7,12 @@
     tools:context=".ui.fragments.RecipesFragment">
 
     <com.todkars.shimmer.ShimmerRecyclerView
-        android:id="@+id/shimmer_recycler_view"
+        android:id="@+id/recyclerView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
+        app:shimmer_recycler_layout="@layout/placeholder_recipes_item"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -71,6 +72,5 @@
         app:layout_constraintEnd_toEndOf="@+id/noNetworkImageView"
         app:layout_constraintStart_toStartOf="@+id/noNetworkImageView"
         app:layout_constraintTop_toBottomOf="@+id/noNetworkTextView" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

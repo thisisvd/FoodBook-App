@@ -13,12 +13,15 @@ import com.vdcodeassociate.foodbook.models.FoodItem
 import com.vdcodeassociate.foodbook.models.FoodItemResponse
 import com.vdcodeassociate.foodbook.ui.viewmodels.repository.Repository
 import com.vdcodeassociate.foodbook.utils.Resource
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import retrofit2.Response
 import retrofit2.http.Query
 import java.lang.Exception
+import javax.inject.Inject
 
-class MainViewModel @ViewModelInject constructor(
+@HiltViewModel
+class MainViewModel @Inject constructor(
     private val repository: Repository,
     application: Application
 ): AndroidViewModel(application) {
@@ -55,7 +58,7 @@ class MainViewModel @ViewModelInject constructor(
             response.code() == 402 -> {
                 return Resource.Error("API KEY Limited!")
             }
-            response.body()!!.results.isNotEmpty() -> {
+            response.body()!!.results.isEmpty() -> {
                 return Resource.Error("Food Item / Recipe not found!")
             }
             response.isSuccessful -> {
