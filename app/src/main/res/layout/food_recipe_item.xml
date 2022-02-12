@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="4dp"
+    android:layout_marginBottom="4dp"
+    android:id="@+id/foodRecipesLayout">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:strokeWidth="1dp"
+        app:strokeColor="@color/lightMediumGray"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white">
+
+            <ImageView
+                android:id="@+id/foodRecipeImageView"
+                android:layout_width="200dp"
+                android:layout_height="0dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <TextView
+                android:id="@+id/foodRecipeTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="12dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/courgette"
+                android:maxLines="2"
+                android:text="TextView"
+                android:textColor="@color/darker"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/foodRecipeImageView"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:layout_marginTop="6dp"
+                android:maxLines="3"
+                android:ellipsize="end"
+                app:layout_constraintEnd_toEndOf="@+id/foodRecipeTitle"
+                app:layout_constraintStart_toStartOf="@+id/foodRecipeTitle"
+                app:layout_constraintTop_toBottomOf="@+id/foodRecipeTitle" />
+
+            <ImageView
+                android:id="@+id/heartImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="36dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/likeTV"
+                app:layout_constraintTop_toBottomOf="@+id/textView3"
+                app:layout_constraintVertical_bias="0.252"
+                app:srcCompat="@drawable/ic_twotone_favorite_24"
+                app:tint="@color/red" />
+
+            <TextView
+                android:id="@+id/likeTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="100"
+                android:textColor="@color/red"
+                android:textAlignment="center"
+                app:layout_constraintStart_toStartOf="@+id/textView3"
+                app:layout_constraintTop_toBottomOf="@+id/heartImage" />
+
+            <ImageView
+                android:id="@+id/clockImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:tint="@color/yellow"
+                app:layout_constraintBottom_toBottomOf="@+id/heartImage"
+                app:layout_constraintEnd_toEndOf="@+id/timeTV"
+                app:layout_constraintStart_toStartOf="@+id/timeTV"
+                app:layout_constraintTop_toTopOf="@+id/heartImage"
+                app:srcCompat="@drawable/ic_twotone_access_time_24" />
+
+            <TextView
+                android:id="@+id/timeTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:text="15 min"
+                android:textColor="@color/yellow"
+                android:textAlignment="center"
+                app:layout_constraintStart_toEndOf="@+id/likeTV"
+                app:layout_constraintTop_toBottomOf="@+id/clockImage" />
+
+            <ImageView
+                android:id="@+id/leafImageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/clockImage"
+                app:layout_constraintEnd_toEndOf="@+id/leafTV"
+                app:layout_constraintStart_toStartOf="@+id/leafTV"
+                app:layout_constraintTop_toTopOf="@+id/clockImage"
+                app:srcCompat="@drawable/ic_twotone_eco_24" />
+
+            <TextView
+                android:id="@+id/leafTV"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:text="101"
+                android:textAlignment="center"
+                app:layout_constraintStart_toEndOf="@+id/timeTV"
+                app:layout_constraintTop_toBottomOf="@+id/leafImageView" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
