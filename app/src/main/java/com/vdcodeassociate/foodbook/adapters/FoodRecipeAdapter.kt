@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.vdcodeassociate.foodbook.databinding.FoodRecipeItemBinding
 import com.vdcodeassociate.foodbook.databinding.RecipesItemBinding
 import com.vdcodeassociate.foodbook.models.FoodItem
 import com.vdcodeassociate.foodbook.models.FoodItemResponse
@@ -15,7 +16,7 @@ class FoodRecipeAdapter: RecyclerView.Adapter<FoodRecipeAdapter.FoodRecipeViewHo
     private var foodRecipe = emptyList<FoodItem>()
 
     // inner class
-    class FoodRecipeViewHolder(private val binding: RecipesItemBinding): RecyclerView.ViewHolder(binding.root) {
+    class FoodRecipeViewHolder(private val binding: FoodRecipeItemBinding): RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: FoodItem) {
             binding.foodItem = item
@@ -26,7 +27,7 @@ class FoodRecipeAdapter: RecyclerView.Adapter<FoodRecipeAdapter.FoodRecipeViewHo
         companion object {
             fun from(parent: ViewGroup): FoodRecipeViewHolder{
                 val layoutInflater = LayoutInflater.from(parent.context)
-                val binding = RecipesItemBinding.inflate(layoutInflater, parent, false)
+                val binding = FoodRecipeItemBinding.inflate(layoutInflater, parent, false)
                 return FoodRecipeViewHolder(binding)
             }
         }

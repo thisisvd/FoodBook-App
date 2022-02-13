@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.vdcodeassociate.foodbook.R
 import com.vdcodeassociate.foodbook.adapters.FoodRecipeAdapter
@@ -15,7 +16,9 @@ import com.vdcodeassociate.foodbook.databinding.FragmentRecipesBinding
 import com.vdcodeassociate.foodbook.ui.viewmodels.FoodRecipeViewModel
 import com.vdcodeassociate.foodbook.ui.viewmodels.MainViewModel
 import com.vdcodeassociate.foodbook.utils.Resource
+import com.vdcodeassociate.foodbook.utils.observeOnce
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class RecipesFragment : Fragment() {
@@ -48,22 +51,39 @@ class RecipesFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentRecipesBinding.inflate(inflater, container, false)
+        binding.lifecycleOwner = this
+        binding.mainViewModel = mainViewModel
         binding.apply {
 
             // setUp recycler
             setUpRecyclerView()
 
             // viewModel init
-            requestAPIData()
+            readDataBase()
 
         }
         return binding.root
     }
 
+    // read data from database
+    private fun readDataBase() {
+       lifecycleScope.launch {
+           mainViewModel.readRecipes.observeOnce(viewLifecycleOwner) { database ->
+               if(database.isNotEmpty()){
+                   Log.d(TAG,"readDatabase called!")
+                   recyclerAdapter.setData(database[0].foodRecipes)
+                   hideShimmerEffect()
+               } else {
+                   requestAPIData()
+               }
+           }
+       }
+    }
+
     // viewModel request
     private fun requestAPIData() {
         mainViewModel.apply {
-
+            Log.d(TAG,"recipesAPIData called!")
             // requesting food - api data
             getFoodItem(recipeViewModel.applyQueries())
 
@@ -76,6 +96,7 @@ class RecipesFragment : Fragment() {
                     }
                     is Resource.Error -> {
                         hideShimmerEffect()
+                        loadDataFromCache()
                         Log.d(TAG, "Error occurred while loading data! ${response.message}")
                     }
                     is Resource.Error -> {
@@ -84,6 +105,17 @@ class RecipesFragment : Fragment() {
                 }
             }
 
+        }
+    }
+
+    // if will get any error then load db only from cache
+    private fun loadDataFromCache(){
+        lifecycleScope.launch {
+            mainViewModel.readRecipes.observe(viewLifecycleOwner) { database ->
+                if(database.isNotEmpty()){
+                    recyclerAdapter.setData(database[0].foodRecipes)
+                }
+            }
         }
     }
 
