@@ -12,12 +12,19 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+
+        <item name="actionBarStyle">@style/CustomActionBarStyle</item>
+
     </style>
 
     <style name="CustomChipStyle" parent="Widget.MaterialComponents.Chip.Filter">
         <item name="chipBackgroundColor">@color/chip_background_color</item>
         <item name="android:textColor">@color/chip_text_background_color</item>
         <item name="checkedIconTint">@color/chip_text_background_color</item>
+    </style>
+
+    <style name="CustomActionBarStyle" parent="Widget.MaterialComponents.ActionBar.Primary">
+        <item name="background">@color/actionBarBackgroundColor</item>
     </style>
 
 </resources>

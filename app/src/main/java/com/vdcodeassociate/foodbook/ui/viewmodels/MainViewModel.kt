@@ -37,9 +37,32 @@ class MainViewModel @Inject constructor(
     // food response variable
     var recipeResponse: MutableLiveData<Resource<FoodItemResponse>> = MutableLiveData()
 
+    // search recipe response variable
+    var searchRecipesResponse: MutableLiveData<Resource<FoodItemResponse>> = MutableLiveData()
+
     // calling the response method / data
     fun getFoodItem(query: Map<String, String>) = viewModelScope.launch {
         getFoodSafeCall(query)
+    }
+
+    // calling the search response method / data
+    fun searchRecipeItem(searchQuery: Map<String, String>) = viewModelScope.launch {
+        searchRecipeItemSafeCall(searchQuery)
+    }
+
+    // getting save callback from network with network active status
+    private suspend fun searchRecipeItemSafeCall(searchQuery: Map<String, String>) {
+        searchRecipesResponse.value = Resource.Loading()
+        if(hasInternetConnection()) {
+            try {
+                val response = repository.remote.searchRecipe(searchQuery)
+                searchRecipesResponse.value = handleRecipeResponse(response)
+            }catch (e: Exception){
+                searchRecipesResponse.value = Resource.Error("Recipes not found!")
+            }
+        }else {
+            searchRecipesResponse.value = Resource.Error("No Internet Connection!")
+        }
     }
 
     // getting save callback from network with network active status

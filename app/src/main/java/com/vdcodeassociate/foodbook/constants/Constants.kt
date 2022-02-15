@@ -11,6 +11,7 @@ class Constants {
         const val BASE_URL = "https://api.spoonacular.com"
 
         // API Query Keys
+        const val QUERY_SEARCH = "query"
         const val QUERY_API_KEY = "apiKey"
         const val QUERY_NUMBER = "number"
         const val QUERY_TYPE = "type"
@@ -31,6 +32,7 @@ class Constants {
         const val PREFERENCES_MEAL_TYPE_ID = "mealTypeId"
         const val PREFERENCES_DIET_TYPE = "dietType"
         const val PREFERENCES_DIET_TYPE_ID = "dietTypeId"
+        const val PREFERENCES_BACK_ONLINE = "backOnline"
 
     }
 
