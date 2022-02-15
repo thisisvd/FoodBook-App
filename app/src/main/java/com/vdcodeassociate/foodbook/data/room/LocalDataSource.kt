@@ -1,4 +1,4 @@
-package com.vdcodeassociate.foodbook.room
+package com.vdcodeassociate.foodbook.data.room
 
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject

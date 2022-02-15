@@ -1,7 +1,7 @@
 package com.vdcodeassociate.foodbook.ui.viewmodels.repository
 
-import com.vdcodeassociate.foodbook.restapi.RemoteDataSource
-import com.vdcodeassociate.foodbook.room.LocalDataSource
+import com.vdcodeassociate.foodbook.data.restapi.RemoteDataSource
+import com.vdcodeassociate.foodbook.data.room.LocalDataSource
 import dagger.hilt.android.scopes.ActivityRetainedScoped
 import javax.inject.Inject
 

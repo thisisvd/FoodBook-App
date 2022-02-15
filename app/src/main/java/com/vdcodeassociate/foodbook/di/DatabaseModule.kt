@@ -3,7 +3,7 @@ package com.vdcodeassociate.foodbook.di
 import android.content.Context
 import androidx.room.Room
 import com.vdcodeassociate.foodbook.constants.Constants.Companion.DATABASE_NAME
-import com.vdcodeassociate.foodbook.room.RecipesDatabase
+import com.vdcodeassociate.foodbook.data.room.RecipesDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

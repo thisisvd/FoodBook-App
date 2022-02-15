@@ -1,4 +1,4 @@
-package com.vdcodeassociate.foodbook.room
+package com.vdcodeassociate.foodbook.data.room
 
 import androidx.room.TypeConverter
 import com.google.gson.Gson

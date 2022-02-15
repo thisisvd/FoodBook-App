@@ -1,7 +1,7 @@
 package com.vdcodeassociate.foodbook.di
 
 import com.vdcodeassociate.foodbook.constants.Constants.Companion.BASE_URL
-import com.vdcodeassociate.foodbook.restapi.FoodAPI
+import com.vdcodeassociate.foodbook.data.restapi.FoodAPI
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

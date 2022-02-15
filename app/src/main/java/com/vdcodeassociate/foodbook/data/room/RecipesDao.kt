@@ -1,4 +1,4 @@
-package com.vdcodeassociate.foodbook.room
+package com.vdcodeassociate.foodbook.data.room
 
 import androidx.room.Dao
 import androidx.room.Insert

@@ -4,19 +4,15 @@ import android.app.Application
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
-import android.widget.ResourceCursorAdapter
-import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.*
-import com.vdcodeassociate.foodbook.models.FoodItem
 import com.vdcodeassociate.foodbook.models.FoodItemResponse
-import com.vdcodeassociate.foodbook.room.RecipesEntity
+import com.vdcodeassociate.foodbook.data.room.RecipesEntity
 import com.vdcodeassociate.foodbook.ui.viewmodels.repository.Repository
 import com.vdcodeassociate.foodbook.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import retrofit2.Response
-import retrofit2.http.Query
 import java.lang.Exception
 import javax.inject.Inject
 

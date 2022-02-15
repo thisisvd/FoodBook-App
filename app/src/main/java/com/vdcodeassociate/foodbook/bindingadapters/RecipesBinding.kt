@@ -5,7 +5,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.vdcodeassociate.foodbook.models.FoodItemResponse
-import com.vdcodeassociate.foodbook.room.RecipesEntity
+import com.vdcodeassociate.foodbook.data.room.RecipesEntity
 import com.vdcodeassociate.foodbook.utils.Resource
 
 class RecipesBinding {

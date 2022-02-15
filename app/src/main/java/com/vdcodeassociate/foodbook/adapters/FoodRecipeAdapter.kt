@@ -5,7 +5,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.vdcodeassociate.foodbook.databinding.FoodRecipeItemBinding
-import com.vdcodeassociate.foodbook.databinding.RecipesItemBinding
 import com.vdcodeassociate.foodbook.models.FoodItem
 import com.vdcodeassociate.foodbook.models.FoodItemResponse
 import com.vdcodeassociate.foodbook.utils.FoodRecipeDiffUtil

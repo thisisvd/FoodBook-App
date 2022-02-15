@@ -76,72 +76,92 @@
                     app:layout_constraintStart_toStartOf="@+id/foodRecipeTitle"
                     app:layout_constraintTop_toBottomOf="@+id/foodRecipeTitle" />
 
-                <ImageView
-                    android:id="@+id/heartImage"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
-                    android:layout_marginBottom="36dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="12dp"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="4dp"
+                    android:orientation="horizontal"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="@+id/likeTV"
-                    app:layout_constraintTop_toBottomOf="@+id/textView3"
-                    app:layout_constraintVertical_bias="0.252"
-                    app:srcCompat="@drawable/ic_twotone_favorite_24"
-                    app:tint="@color/red" />
-
-                <TextView
-                    android:id="@+id/likeTV"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    setNumberOfLikes="@{foodItem.aggregateLikes}"
-                    android:textAlignment="center"
-                    android:textColor="@color/red"
+                    app:layout_constraintEnd_toEndOf="@+id/textView3"
                     app:layout_constraintStart_toStartOf="@+id/textView3"
-                    app:layout_constraintTop_toBottomOf="@+id/heartImage" />
+                    app:layout_constraintTop_toBottomOf="@+id/textView3">
 
-                <ImageView
-                    android:id="@+id/clockImage"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintBottom_toBottomOf="@+id/heartImage"
-                    app:layout_constraintEnd_toEndOf="@+id/timeTV"
-                    app:layout_constraintStart_toStartOf="@+id/timeTV"
-                    app:layout_constraintTop_toTopOf="@+id/heartImage"
-                    app:srcCompat="@drawable/ic_twotone_access_time_24"
-                    app:tint="@color/yellow" />
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/timeTV"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
-                    setNumberOfMin="@{foodItem.readyInMinutes}"
-                    android:textAlignment="center"
-                    android:textColor="@color/yellow"
-                    app:layout_constraintStart_toEndOf="@+id/likeTV"
-                    app:layout_constraintTop_toBottomOf="@+id/clockImage" />
+                        <ImageView
+                            android:id="@+id/heartImage"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:srcCompat="@drawable/ic_twotone_favorite_24"
+                            app:tint="@color/red" />
 
-                <ImageView
-                    android:id="@+id/leafImageView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    applyVeganColor="@{foodItem.vegan}"
-                    app:layout_constraintBottom_toBottomOf="@+id/clockImage"
-                    app:layout_constraintEnd_toEndOf="@+id/leafTV"
-                    app:layout_constraintStart_toStartOf="@+id/leafTV"
-                    app:layout_constraintTop_toTopOf="@+id/clockImage"
-                    app:srcCompat="@drawable/ic_twotone_eco_24" />
+                        <TextView
+                            android:id="@+id/likeTV"
+                            setNumberOfLikes="@{foodItem.aggregateLikes}"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:textColor="@color/red" />
 
-                <TextView
-                    android:id="@+id/leafTV"
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:layout_marginStart="24dp"
-                    android:text="Vegan"
-                    applyVeganColor="@{foodItem.vegan}"
-                    android:textAlignment="center"
-                    app:layout_constraintStart_toEndOf="@+id/timeTV"
-                    app:layout_constraintTop_toBottomOf="@+id/leafImageView" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/clockImage"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:srcCompat="@drawable/ic_twotone_access_time_24"
+                            app:tint="@color/yellow" />
+
+                        <TextView
+                            android:id="@+id/timeTV"
+                            setNumberOfMin="@{foodItem.readyInMinutes}"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:textColor="@color/yellow" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/leafImageView"
+                            applyVeganColor="@{foodItem.vegan}"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:srcCompat="@drawable/ic_twotone_eco_24" />
+
+                        <TextView
+                            android:id="@+id/leafTV"
+                            applyVeganColor="@{foodItem.vegan}"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Vegan"
+                            android:textAlignment="center" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -8,6 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.vdcodeassociate.foodbook.R
 import com.vdcodeassociate.foodbook.adapters.FoodRecipeAdapter
@@ -25,6 +27,9 @@ class RecipesFragment : Fragment() {
 
     // TAG
     private val TAG = "RecipesFragment"
+
+    // nag-args
+    private val args by navArgs<RecipesFragmentArgs>()
 
     // view Binding
     private var _binding: FragmentRecipesBinding? = null
@@ -61,6 +66,10 @@ class RecipesFragment : Fragment() {
             // viewModel init
             readDataBase()
 
+            floatingActionButton.setOnClickListener {
+                findNavController().navigate(R.id.action_recipesFragment_to_recipesBottomSheet)
+            }
+
         }
         return binding.root
     }
@@ -69,7 +78,7 @@ class RecipesFragment : Fragment() {
     private fun readDataBase() {
        lifecycleScope.launch {
            mainViewModel.readRecipes.observeOnce(viewLifecycleOwner) { database ->
-               if(database.isNotEmpty()){
+               if(database.isNotEmpty() && !args.backFromBottomSheet){
                    Log.d(TAG,"readDatabase called!")
                    recyclerAdapter.setData(database[0].foodRecipes)
                    hideShimmerEffect()
