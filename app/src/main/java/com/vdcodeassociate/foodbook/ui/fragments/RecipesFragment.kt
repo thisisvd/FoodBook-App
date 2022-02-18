@@ -154,7 +154,7 @@ class RecipesFragment : Fragment(), SearchView.OnQueryTextListener {
                         loadDataFromCache()
                         Log.d(TAG, "Error occurred while loading data! ${response.message}")
                     }
-                    is Resource.Error -> {
+                    is Resource.Loading -> {
                         showShimmerEffect()
                     }
                 }

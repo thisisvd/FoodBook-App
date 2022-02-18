@@ -1,6 +1,7 @@
 package com.vdcodeassociate.foodbook.models
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class FoodItem(
     @SerializedName("aggregateLikes")
@@ -33,4 +34,4 @@ data class FoodItem(
     val vegetarian: Boolean,
     @SerializedName("veryHealthy")
     val veryHealthy: Boolean,
-)
+): Serializable
