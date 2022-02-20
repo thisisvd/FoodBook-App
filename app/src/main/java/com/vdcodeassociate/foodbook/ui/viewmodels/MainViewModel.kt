@@ -4,6 +4,7 @@ import android.app.Application
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
+import android.util.Log
 import androidx.lifecycle.*
 import com.vdcodeassociate.foodbook.models.FoodItemResponse
 import com.vdcodeassociate.foodbook.data.room.RecipesEntity
@@ -21,6 +22,9 @@ class MainViewModel @Inject constructor(
     private val repository: Repository,
     application: Application
 ): AndroidViewModel(application) {
+
+    // TAG
+    private val TAG = "MainViewModel"
 
     /** ROOM DATABASE */
     // read database from db
@@ -57,6 +61,7 @@ class MainViewModel @Inject constructor(
             try {
                 val response = repository.remote.searchRecipe(searchQuery)
                 searchRecipesResponse.value = handleRecipeResponse(response)
+                Log.d(TAG, "Recipes Found!")
             }catch (e: Exception){
                 searchRecipesResponse.value = Resource.Error("Recipes not found!")
             }

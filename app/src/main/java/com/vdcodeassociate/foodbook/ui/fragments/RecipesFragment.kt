@@ -103,6 +103,7 @@ class RecipesFragment : Fragment(), SearchView.OnQueryTextListener {
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.recipes_menu,menu)
 
+        // menu item configs
         val search = menu.findItem(R.id.menuSearch)
         val searchView = search.actionView as? SearchView
         searchView?.isSubmitButtonEnabled = true
@@ -163,7 +164,7 @@ class RecipesFragment : Fragment(), SearchView.OnQueryTextListener {
         }
     }
 
-    // viewModel SEARCH request
+    // viewModel SEARCH ITEM request
     private fun searchAPIData(searchQuery: String) {
         showShimmerEffect()
         mainViewModel.searchRecipeItem(recipeViewModel.applySearchQuery(searchQuery))
@@ -211,7 +212,7 @@ class RecipesFragment : Fragment(), SearchView.OnQueryTextListener {
 
     // show shimmer effect
     private fun showShimmerEffect(){
-        binding.recyclerView.hideShimmer()
+        binding.recyclerView.showShimmer()
     }
 
     // hide shimmer effect
