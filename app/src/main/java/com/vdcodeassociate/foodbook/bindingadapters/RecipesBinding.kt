@@ -6,12 +6,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.databinding.BindingAdapter
-import androidx.navigation.Navigation.findNavController
 import androidx.navigation.findNavController
 import com.vdcodeassociate.foodbook.models.FoodItemResponse
 import com.vdcodeassociate.foodbook.data.room.RecipesEntity
 import com.vdcodeassociate.foodbook.models.FoodItem
-import com.vdcodeassociate.foodbook.ui.fragments.RecipesFragment
 import com.vdcodeassociate.foodbook.ui.fragments.RecipesFragmentDirections
 import com.vdcodeassociate.foodbook.utils.Resource
 import java.lang.Exception
@@ -25,7 +23,8 @@ class RecipesBinding {
         fun onRecipeClickListener(foodRecipesLayout: ConstraintLayout, foodItem: FoodItem) {
             Log.d("onRecipeClickListener", "CALLED!")
             try {
-                val action = RecipesFragmentDirections.actionRecipesFragmentToDetailsActivity(foodItem)
+                val action =
+                    RecipesFragmentDirections.actionRecipesFragmentToDetailsActivity(foodItem)
                 foodRecipesLayout.findNavController().navigate(action)
             } catch (e: Exception) {
                 Log.d("onRecipeClickListener", e.toString())
@@ -40,11 +39,11 @@ class RecipesBinding {
             apiResponse: Resource<FoodItemResponse>?,
             database: List<RecipesEntity>?
         ) {
-            if(apiResponse is Resource.Error && database.isNullOrEmpty()) {
+            if (apiResponse is Resource.Error && database.isNullOrEmpty()) {
                 imageView.visibility = View.VISIBLE
-            } else if(apiResponse is Resource.Loading) {
+            } else if (apiResponse is Resource.Loading) {
                 imageView.visibility = View.INVISIBLE
-            } else if(apiResponse is Resource.Success) {
+            } else if (apiResponse is Resource.Success) {
                 imageView.visibility = View.INVISIBLE
             }
 
@@ -57,11 +56,11 @@ class RecipesBinding {
             apiResponse: Resource<FoodItemResponse>?,
             database: List<RecipesEntity>?
         ) {
-            if(apiResponse is Resource.Error && database.isNullOrEmpty()) {
+            if (apiResponse is Resource.Error && database.isNullOrEmpty()) {
                 textView.visibility = View.VISIBLE
-            } else if(apiResponse is Resource.Loading) {
+            } else if (apiResponse is Resource.Loading) {
                 textView.visibility = View.INVISIBLE
-            } else if(apiResponse is Resource.Success) {
+            } else if (apiResponse is Resource.Success) {
                 textView.visibility = View.INVISIBLE
             }
 
