@@ -1,4 +1,4 @@
-package com.vdcodeassociate.foodbook.ui.fragments
+package com.vdcodeassociate.foodbook.ui.fragments.mainactivity
 
 import android.os.Bundle
 import android.util.Log

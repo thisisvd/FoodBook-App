@@ -72,7 +72,7 @@
                     android:layout_marginTop="6dp"
                     android:ellipsize="end"
                     android:maxLines="3"
-                    android:text="@{foodItem.summary}"
+                    parseHTML="@{foodItem.summary}"
                     app:layout_constraintEnd_toEndOf="@+id/foodRecipeTitle"
                     app:layout_constraintStart_toStartOf="@+id/foodRecipeTitle"
                     app:layout_constraintTop_toBottomOf="@+id/foodRecipeTitle" />
