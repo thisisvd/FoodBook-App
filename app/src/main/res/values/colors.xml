@@ -34,6 +34,9 @@
     <color name="checkedChipTextBackgroundColor">@color/purple_500</color>
     <color name="chipTextBackgroundColor">@color/darkGray</color>
 
+    <color name="strokeColor">@color/lightMediumGray</color>
+    <color name="cardBackgroundColor">@color/white</color>
     <color name="actionBarBackgroundColor">@color/purple_700</color>
+    <color name="titleColor">@color/darker</color>
 
 </resources>
