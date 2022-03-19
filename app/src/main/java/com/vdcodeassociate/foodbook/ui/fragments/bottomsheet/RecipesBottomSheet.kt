@@ -28,12 +28,14 @@ class RecipesBottomSheet : BottomSheetDialogFragment() {
     private var _binding: RecipesBottomSheetBinding? = null
     private val binding get() = _binding!!
 
+    // viewModel
     private lateinit var viewModel: FoodRecipeViewModel
 
-    private var  mealTypeChip = DEFAULT_MEAL_TYPE
-    private var  mealTypeChipId = 0
-    private var  dietTypeChip = DEFAULT_DIET_TYPE
-    private var  dietTypeChipId = 0
+    // bottom chip bar vars
+    private var mealTypeChip = DEFAULT_MEAL_TYPE
+    private var mealTypeChipId = 0
+    private var dietTypeChip = DEFAULT_DIET_TYPE
+    private var dietTypeChipId = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,8 +54,8 @@ class RecipesBottomSheet : BottomSheetDialogFragment() {
             viewModel.readMealAndDietType.asLiveData().observe(viewLifecycleOwner) { value ->
                 mealTypeChip = value.selectedMealType
                 dietTypeChip = value.selectedDietType
-                updateChipUI(value.selectedMealTypeId,mealTypeChipGroup)
-                updateChipUI(value.selectedDietTypeId,dietTypeChipGroup)
+                updateChipUI(value.selectedMealTypeId, mealTypeChipGroup)
+                updateChipUI(value.selectedDietTypeId, dietTypeChipGroup)
             }
 
             mealTypeChipGroup.setOnCheckedChangeListener { group, checkedId ->
@@ -79,7 +81,10 @@ class RecipesBottomSheet : BottomSheetDialogFragment() {
                 )
 
                 val bundle = bundleOf("backFromBottomSheet" to true)
-                findNavController().navigate(R.id.action_recipesBottomSheet_to_recipesFragment,bundle)
+                findNavController().navigate(
+                    R.id.action_recipesBottomSheet_to_recipesFragment,
+                    bundle
+                )
             }
 
         }
@@ -88,7 +93,7 @@ class RecipesBottomSheet : BottomSheetDialogFragment() {
     }
 
     private fun updateChipUI(chipID: Int, chipGroup: ChipGroup) {
-        if(chipID != 0){
+        if (chipID != 0) {
             try {
                 chipGroup.findViewById<Chip>(chipID).isChecked = true
             } catch (e: Exception) {
