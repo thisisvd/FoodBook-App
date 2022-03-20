@@ -29,6 +29,7 @@ class DetailsActivity : AppCompatActivity() {
         setContentView(binding.root)
         binding.apply {
 
+            // toolbar setup
             setSupportActionBar(binding.toolbar)
             toolbar.setTitleTextColor(ContextCompat.getColor(this@DetailsActivity, R.color.white))
             supportActionBar?.setDisplayHomeAsUpEnabled(true)
