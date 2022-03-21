@@ -34,4 +34,4 @@ data class FoodItem(
     val vegetarian: Boolean,
     @SerializedName("veryHealthy")
     val veryHealthy: Boolean,
-): Serializable
+) : Serializable

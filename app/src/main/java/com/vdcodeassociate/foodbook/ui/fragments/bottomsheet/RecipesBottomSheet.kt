@@ -58,6 +58,7 @@ class RecipesBottomSheet : BottomSheetDialogFragment() {
                 updateChipUI(value.selectedDietTypeId, dietTypeChipGroup)
             }
 
+            // meal chip group
             mealTypeChipGroup.setOnCheckedChangeListener { group, checkedId ->
                 val chip = group.findViewById<Chip>(checkedId)
                 val selectedMealType = chip.text.toString().lowercase(Locale.ROOT)
@@ -65,6 +66,7 @@ class RecipesBottomSheet : BottomSheetDialogFragment() {
                 mealTypeChipId = checkedId
             }
 
+            // diet chip group
             dietTypeChipGroup.setOnCheckedChangeListener { group, checkedId ->
                 val chip = group.findViewById<Chip>(checkedId)
                 val selectedDietType = chip.text.toString().lowercase(Locale.ROOT)
@@ -72,6 +74,7 @@ class RecipesBottomSheet : BottomSheetDialogFragment() {
                 dietTypeChipId = checkedId
             }
 
+            // apply btn listener
             applyButton.setOnClickListener {
                 viewModel.saveMealAndDietType(
                     mealTypeChip,
@@ -80,6 +83,7 @@ class RecipesBottomSheet : BottomSheetDialogFragment() {
                     dietTypeChipId
                 )
 
+                // sending data to next fragment
                 val bundle = bundleOf("backFromBottomSheet" to true)
                 findNavController().navigate(
                     R.id.action_recipesBottomSheet_to_recipesFragment,
@@ -92,6 +96,7 @@ class RecipesBottomSheet : BottomSheetDialogFragment() {
         return binding.root
     }
 
+    // update UI chip
     private fun updateChipUI(chipID: Int, chipGroup: ChipGroup) {
         if (chipID != 0) {
             try {
