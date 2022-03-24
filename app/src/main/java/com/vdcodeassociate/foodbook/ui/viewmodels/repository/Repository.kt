@@ -11,8 +11,10 @@ class Repository @Inject constructor(
     localDataSource: LocalDataSource
 ) {
 
+    // data source from API
     val remote = remoteDataSource
 
+    // data source from ROOM
     val local = localDataSource
 
 }

@@ -15,6 +15,7 @@ import org.jsoup.Jsoup
 
 class OverviewFragment : Fragment() {
 
+    // viewBinding
     private var _binding: FragmentOverviewBinding? = null
     private val binding get() = _binding!!
 
