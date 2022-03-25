@@ -123,17 +123,19 @@ class RecipesFragment : Fragment(), SearchView.OnQueryTextListener {
 
     // read data from database
     private fun readDataBase() {
-       lifecycleScope.launch {
-           mainViewModel.readRecipes.observeOnce(viewLifecycleOwner) { database ->
-               if(database.isNotEmpty() && !args.backFromBottomSheet){
-                   Log.d(TAG,"readDatabase called!")
-                   recyclerAdapter.setData(database[0].foodRecipes)
-                   hideShimmerEffect()
-               } else {
-                   requestAPIData()
-               }
-           }
-       }
+
+        // read particular recipe
+        lifecycleScope.launch {
+            mainViewModel.readRecipes.observeOnce(viewLifecycleOwner) { database ->
+                if (database.isNotEmpty() && !args.backFromBottomSheet) {
+                    Log.d(TAG, "readDatabase called!")
+                    recyclerAdapter.setData(database[0].foodRecipes)
+                    hideShimmerEffect()
+                } else {
+                    requestAPIData()
+                }
+            }
+        }
     }
 
     // viewModel main data request
