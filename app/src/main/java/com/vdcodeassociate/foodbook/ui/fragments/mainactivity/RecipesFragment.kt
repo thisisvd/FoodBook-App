@@ -86,6 +86,7 @@ class RecipesFragment : Fragment(), SearchView.OnQueryTextListener {
                     }
             }
 
+            // fab listener
             floatingActionButton.setOnClickListener {
                 // only do if network is available
                 if (recipeViewModel.networkStatus) {
@@ -110,6 +111,7 @@ class RecipesFragment : Fragment(), SearchView.OnQueryTextListener {
         searchView?.setOnQueryTextListener(this)
     }
 
+    // query for api data
     override fun onQueryTextSubmit(query: String?): Boolean {
         if(query != null){
             searchAPIData(query)
