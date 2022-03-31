@@ -88,12 +88,14 @@ class RecipesFragment : Fragment(), SearchView.OnQueryTextListener {
 
             // fab listener
             floatingActionButton.setOnClickListener {
+
                 // only do if network is available
                 if (recipeViewModel.networkStatus) {
                     findNavController().navigate(R.id.action_recipesFragment_to_recipesBottomSheet)
                 } else {
                     recipeViewModel.showNetworkStatus()
                 }
+
             }
 
         }
